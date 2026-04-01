@@ -1,143 +1,92 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio personal de Andres Wu — Desarrollador Web en formación." />
-  <title>Andres Wu | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Portafolio personal de Andres Wu" />
+  <title>Andres Wu | Portafolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="header">
-    <div class="header__logo">AW<span class="dot">.</span></div>
-    <nav class="header__nav" aria-label="Navegación principal">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#tecnologias">Skills</a>
-      <a href="#hobbies">Hobbies</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <div class="logo">PORTAFOLIO</div>
+    <a href="#contacto" class="btn btn-primary">Contactar</a>
   </header>
 
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-      <div class="hero__eyebrow">👋 Hola, soy</div>
-      <h1 class="hero__name">Andres<br /><span>Wu</span></h1>
-      <p class="hero__role">Desarrollador Web <span class="accent">en formación</span></p>
-      <p class="hero__objetivo">
-        Busco mi primera experiencia en desarrollo frontend, construyendo interfaces
-        limpias y accesibles que resuelvan problemas reales.
+  <main class="container">
+    
+    <!-- HERO / IDENTIDAD -->
+    <section class="card">
+      <span class="eyebrow">PORTAFOLIO PROFESIONAL</span>
+      <h1>Andres Wu</h1>
+      <p class="role"><strong>Rol objetivo:</strong> Desarrollador Web Frontend</p>
+      <p class="desc">
+        Busco como profesional crear y contribuir a varios proyectos innovadores
+        además de seguir mejorando mis habilidades técnicas.
       </p>
-      <div class="hero__cta">
-        <a href="#contacto" class="btn btn--primary">Contactarme</a>
-      </div>
-      <div class="hero__scroll-hint" aria-hidden="true">scroll ↓</div>
+      <a href="#tecnologias" class="btn btn-primary">Ver tecnologías</a>
     </section>
 
-    <!-- SOBRE MÍ -->
-    <section class="section" id="sobre-mi">
-      <span class="section__label">01 — Sobre mí</span>
-      <h2 class="section__title">Un poco<br />de mí</h2>
-      <div class="about__grid">
-        <div class="about__photo" aria-label="Foto de perfil">
-          <div class="about__photo-placeholder">AW</div>
-        </div>
-        <div class="about__text">
-          <p>
-            Soy estudiante de desarrollo web con pasión por crear experiencias digitales
-            atractivas y funcionales. Me enfoco en aprender las mejores prácticas de
-            HTML, CSS y JavaScript para construir proyectos sólidos desde cero.
-          </p>
-          <p>
-            Cuando no estoy programando, me gusta explorar diseño UI, escuchar música
-            y seguir tendencias tecnológicas. Creo que la curiosidad constante es la
-            clave para crecer como desarrollador.
-          </p>
-          <ul class="about__interests">
-            <li> Diseño UI/UX</li>
-            <li> Frontend moderno</li>
-            <li> Proyectos open source</li>
-          </ul>
-        </div>
-      </div>
+    <!-- OBJETIVO PROFESIONAL -->
+    <section class="card">
+      <h2>Objetivo profesional</h2>
+      <p>
+        En el corto y mediano plazo quiero conseguir mi primera experiencia como desarrollador, 
+        aportar en proyectos de impacto y seguir construyendo interfaces accesibles y limpias.
+      </p>
     </section>
 
     <!-- TECNOLOGÍAS -->
-    <section class="section section--dark" id="tecnologias">
-      <span class="section__label">02 — Skills</span>
-      <h2 class="section__title">Tecnologías<br />de interés</h2>
-      <div class="chips__wrapper">
-        <span class="chip chip--html">HTML5</span>
-        <span class="chip chip--css">CSS3</span>
-        <span class="chip chip--js">JavaScript</span>
-        <span class="chip chip--git">Git</span>
-        <span class="chip chip--github">GitHub</span>
-        <span class="chip chip--vsc">VS Code</span>
-        <span class="chip chip--figma">Figma</span>
-        <span class="chip chip--responsive">Responsive Design</span>
+    <section class="card" id="tecnologias">
+      <h2>Tecnologías de interés</h2>
+      <div class="chips">
+        <span class="chip">HTML5</span>
+        <span class="chip">CSS3</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Git</span>
+        <span class="chip">GitHub</span>
+        <span class="chip">VS Code</span>
       </div>
     </section>
 
     <!-- HOBBIES -->
-    <section class="section" id="hobbies">
-      <span class="section__label">03 — Intereses</span>
-      <h2 class="section__title">Mis Hobbies</h2>
-      <div class="hobbies__grid">
-        <article class="hobby-card">
-          <div class="hobby-card__img-wrapper">
-            <!-- Coloca aquí tu imagen de videojuegos. Al guardarla en la carpeta assets, usa: src="assets/tujuego.jpg" -->
-            <img src="assets/juegos.jpg" alt="Uno de mis juegos favoritos Persona 3" loading="lazy" class="hobby-card__img" />
+    <section class="card">
+      <h2>Intereses y Hobbies</h2>
+      <div class="hobbies">
+        <div class="hobby">
+          <img src="assets/juegos.jpg" alt="Videojuegos" />
+          <div>
+            <h3>Videojuegos</h3>
+            <p>Disfruto de mundos inmersivos y mecánicas retadoras.</p>
           </div>
-          <h3 class="hobby-card__title">Videojuegos</h3>
-          <p class="hobby-card__desc">
-            Disfruto de mundos inmersivos y mecánicas retadoras que estimulan la resolución de problemas.
-          </p>
-        </article>
-
-        <article class="hobby-card">
-          <div class="hobby-card__img-wrapper">
-            <!-- Coloca aquí tu imagen de anime. Al guardarla en la carpeta assets, usa: src="assets/tuanime.jpg" -->
-            <img src="assets/anime.jpg" alt="Mi anime favorito Full Metal Alchemist Brotherhood" loading="lazy" class="hobby-card__img" />
+        </div>
+        <div class="hobby">
+          <img src="assets/anime.jpg" alt="Anime" />
+          <div>
+            <h3>Anime</h3>
+            <p>Me apasiona la animación japonesa y sus historias.</p>
           </div>
-          <h3 class="hobby-card__title">Anime</h3>
-          <p class="hobby-card__desc">
-            Me apasiona la animación japonesa, tanto por su arte visual como por el desarrollo de sus historias.
-          </p>
-        </article>
+        </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section class="section section--accent" id="contacto">
-      <span class="section__label">04 — Contacto</span>
-      <h2 class="section__title">Hablemos</h2>
-      <p class="contact__desc">
-        ¿Tienes un proyecto, una oportunidad o simplemente quieres conectar? Escríbeme.
-      </p>
-      <div class="contact__links">
-        <a href="24100803@ue.edu.pe" class="contact__btn">
-          <span>✉</span> tu@email.com
-        </a>
-        <a href="https://www.linkedin.com/in/andres-wu-37a2b6400/" target="_blank" rel="noopener" class="contact__btn">
-          <span>in</span> LinkedIn
-        </a>
-        <a href="https://github.com/andresws2207" target="_blank" rel="noopener" class="contact__btn">
-          <span>⌥</span> GitHub
-        </a>
+    <section class="card" id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes una oportunidad o simplemente quieres conectar? Escríbeme.</p>
+      <div class="links">
+        <a href="mailto:tu@email.com">tu@email.com</a>
+        <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/andresws2207" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <p>Diseñado y desarrollado por <strong>Andres Wu</strong> · <span id="anio"></span></p>
+    <p>Diseñado y desarrollado por Andres Wu</p>
   </footer>
 
   <script src="script.js"></script>
