@@ -113,39 +113,44 @@ h2 {
 
 /* HOBBIES */
 .hobbies {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   width: 100%;
+}
+
+@media (min-width: 600px) {
+  .hobbies {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .hobby {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .hobby img {
   width: 100%;
-  max-width: 500px;
-  height: auto;
   aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
-  background-color: #eee; /* Fondo temporal si la imagen falta */
+  background-color: #eee;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Pequeña sombra para no verse plano */
 }
 
 .hobby h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
 .hobby p {
   color: #555;
-  max-width: 500px;
+  font-size: 0.95rem;
 }
-
 /* CONTACTO / ENLACES */
 .links {
   display: flex;
@@ -173,3 +178,4 @@ footer {
   color: #888;
   font-size: 0.85rem;
 }
+
