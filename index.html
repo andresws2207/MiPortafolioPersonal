@@ -10,36 +10,27 @@
 <body>
 
   <!-- HEADER -->
-  <header class="header">
+  <header>
     <div class="logo">PORTAFOLIO</div>
-    <a href="#contacto" class="btn btn-primary">Contactar</a>
+    <nav>
+      <a href="#contacto" class="btn">Contactar</a>
+    </nav>
   </header>
 
   <main class="container">
     
-    <!-- HERO / IDENTIDAD -->
-    <section class="card">
-      <span class="eyebrow">PORTAFOLIO PROFESIONAL</span>
+    <!-- IDENTIDAD -->
+    <section class="hero text-center">
       <h1>Andres Wu</h1>
-      <p class="role"><strong>Rol objetivo:</strong> Desarrollador Web Frontend</p>
-      <p class="desc">
-        Busco como profesional crear y contribuir a varios proyectos innovadores
-        además de seguir mejorando mis habilidades técnicas.
-      </p>
-      <a href="#tecnologias" class="btn btn-primary">Ver tecnologías</a>
-    </section>
-
-    <!-- OBJETIVO PROFESIONAL -->
-    <section class="card">
-      <h2>Objetivo profesional</h2>
+      <p class="role">Desarrollador Web Frontend</p>
       <p>
-        En el corto y mediano plazo quiero conseguir mi primera experiencia como desarrollador, 
-        aportar en proyectos de impacto y seguir construyendo interfaces accesibles y limpias.
+        Busco mi primera experiencia en desarrollo frontend, aportando en proyectos
+        de impacto y construyendo interfaces limpias, funcionales y accesibles.
       </p>
     </section>
 
     <!-- TECNOLOGÍAS -->
-    <section class="card" id="tecnologias">
+    <section id="tecnologias" class="text-center">
       <h2>Tecnologías de interés</h2>
       <div class="chips">
         <span class="chip">HTML5</span>
@@ -52,30 +43,28 @@
     </section>
 
     <!-- HOBBIES -->
-    <section class="card">
+    <section class="hobbies-section text-center">
       <h2>Intereses y Hobbies</h2>
       <div class="hobbies">
         <div class="hobby">
-          <img src="assets/juegos.jpg" alt="Videojuegos" />
-          <div>
-            <h3>Videojuegos</h3>
-            <p>Disfruto de mundos inmersivos y mecánicas retadoras.</p>
-          </div>
+          <!-- Coloca la imagen de Persona 3 guardada como "persona3.jpg" dentro de la carpeta "assets" -->
+          <img src="assets/juegos.jpg" alt="Persona 3" />
+          <h3>Videojuegos: Persona 3</h3>
+          <p>Me gusta mucho la musica tengo bastantes canciones en mi playlist y la historia de Persona 3.</p>
         </div>
         <div class="hobby">
-          <img src="assets/anime.jpg" alt="Anime" />
-          <div>
-            <h3>Anime</h3>
-            <p>Me apasiona la animación japonesa y sus historias.</p>
-          </div>
+          <!-- Coloca la imagen de FMAB guardada como "fmab.jpg" dentro de la carpeta "assets" -->
+          <img src="assets/anime.jpg" alt="Fullmetal Alchemist: Brotherhood" />
+          <h3>Anime: FMAB</h3>
+          <p>Fullmetal Alchemist Brotherhood es el mejor anime de la historia.</p>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section class="card" id="contacto">
-      <h2>Contacto</h2>
-      <p>¿Tienes una oportunidad o simplemente quieres conectar? Escríbeme.</p>
+    <section id="contacto" class="text-center">
+      <h2>Hablemos</h2>
+      <p>¿Tienes alguna oportunidad o simplemente quieres conectar?</p>
       <div class="links">
         <a href="mailto:tu@email.com">tu@email.com</a>
         <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
@@ -85,7 +74,7 @@
 
   </main>
 
-  <footer class="footer">
+  <footer>
     <p>Diseñado y desarrollado por Andres Wu</p>
   </footer>
 
