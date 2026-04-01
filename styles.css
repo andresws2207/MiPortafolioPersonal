@@ -59,7 +59,7 @@ header {
 }
 
 .btn {
-  background-color: #1a5e42;
+  background-color: #1c83cd;
   color: #ffffff;
   padding: 0.6rem 1.5rem;
   border-radius: 30px;
@@ -161,13 +161,13 @@ h2 {
 }
 
 .links a {
-  color: #1a5e42;
+  color: #1c83cd;
   font-weight: 600;
   border-bottom: 1px solid transparent;
 }
 
 .links a:hover {
-  border-bottom: 1px solid #1a5e42;
+  border-bottom: 1px solid #1c83cd;
 }
 
 /* FOOTER */
