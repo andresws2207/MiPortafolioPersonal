@@ -118,16 +118,15 @@ window.addEventListener('keydown', (e) => {
 function activarJJK() {
   console.log("¡Expansión de Dominio!");
   
-  // Evitar añadir múltiples videos
-  if (document.getElementById('video-jjk')) return;
+  if (document.getElementById('video-jjk2')) return;
   
   const video = document.createElement('video');
-  video.id = 'video-jjk';
-  video.src = 'assets/jjk.mp4';
+  video.id = 'video-jjk2';
+  video.src = 'assets/jjk2.mp4';
   video.autoplay = true;
-  video.loop = true;
+  video.preload = 'auto'; // Precargar bloque de video
+  video.playsInline = true;
   
-  // Estilo del video para que tome TODA la pantalla en el fondo
   video.style.position = 'fixed';
   video.style.top = '0';
   video.style.left = '0';
@@ -136,15 +135,36 @@ function activarJJK() {
   video.style.objectFit = 'cover';
   video.style.zIndex = '-2';
   
+  // Acelerador de hardware forzado
+  video.style.transform = 'translateZ(0)';
+  video.style.willChange = 'transform, opacity';
+  
   document.body.appendChild(video);
   
-  // Borramos el fondo que tiene Persona 3 para que deje ver la capa de video debajo
-  document.body.style.background = 'transparent';
+  // Manejo del contenedor principal y sus filtros difuminados
+  const cajaPrincipal = document.querySelector('.container');
   
-  // Usamos un pequeño delay técnico para darle Play manualmente superando el bloqueador de navegadores
+  document.body.style.background = 'black';
+  
+  if (cajaPrincipal) {
+    cajaPrincipal.style.transition = 'all 0.3s ease';
+    cajaPrincipal.style.backdropFilter = 'none'; // <- El difuminado sobre un video genera retrasos terribles en el navegador. Quitamos el filtro
+    cajaPrincipal.style.background = 'rgba(10, 10, 10, 0.8)'; // Fondo negro transparente extra oscuro
+  }
+  
+  video.addEventListener('ended', () => {
+    video.remove();
+    document.body.style.background = '';
+    
+    if (cajaPrincipal) {
+      cajaPrincipal.style.backdropFilter = ''; 
+      cajaPrincipal.style.background = ''; 
+    }
+  });
+
   setTimeout(() => {
     video.play().catch(e => {
-        alert("Expansión de dominio invocada (Asegúrate de agregar el video de fondo como: assets/jjk.mp4)");
+        alert("Expansión de dominio invocada (assets/jjk2.mp4)");
     });
   }, 100);
 }
@@ -203,3 +223,4 @@ if (imgPersona3) {
   imgPersona3.addEventListener('mouseup', cancelSecretTimer);
   imgPersona3.addEventListener('mouseleave', cancelSecretTimer);
 }
+
