@@ -14,7 +14,7 @@ body {
   /* ESTE ES EL FONDO (Persona 3) */
   /* Si no pones la imagen en assets/fondo-p3.jpg, mostrará este degradado azul/blanco simulando la imagen */
   background: linear-gradient(120deg, #ffffff 35%, #005ce6 35%, #002266 100%);
-  background-image: url('assets/fondo-p3.jpg');
+  background-image: url('assets/fondo-p32.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
