@@ -279,13 +279,11 @@ footer {
 
 /* Botón Troll */
 .btn-troll {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+  margin: 30px auto; /* Espacio arriba y abajo, centrado horizontalmente */
   padding: 10px 20px;
-  background-color: #ff4757;
-  color: white;
+  background-color: #440078;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 5px;
   font-size: 1rem;
