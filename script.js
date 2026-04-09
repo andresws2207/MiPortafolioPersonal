@@ -91,3 +91,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// --- EASTER EGG: CÓDIGO KONAMI (PERSONA 3) ---
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiPosition = 0;
+
+document.addEventListener('keydown', (e) => {
+  // Convertimos a minúscula por si el usuario tiene Bloq Mayús activado
+  let key = e.key;
+  if (key === 'B' || key === 'A') {
+    key = key.toLowerCase();
+  }
+
+  // Comparamos la tecla apretada con la posición actual de la secuencia secreta
+  if (key === konamiCode[konamiPosition]) {
+    konamiPosition++; // Avanzamos al siguiente paso
+    
+    // Si llegamos al final del arreglo, ¡completaron el código!
+    if (konamiPosition === konamiCode.length) {
+      activarPersona3();
+      konamiPosition = 0; // Reiniciamos por si lo quieren volver a hacer
+    }
+  } else {
+    // Si se equivocan de tecla, se rompe la cadena y vuelve a empezar
+    konamiPosition = 0;
+    
+    // Pequeño truco: Si se equivocó pero apretó la Flecha Arriba (inicio del código), cuenta como primer paso
+    if (key === konamiCode[0]) {
+      konamiPosition = 1;
+    }
+  }
+});
+
+function activarPersona3() {
+  console.log("🔥 ¡Has activado el secreto de Persona 3! 🔥");
+  
+  // 1. Reproducir sonido (¡Asegúrate de poner este archivo en tu carpeta assets!)
+  const sonido = new Audio('assets/sonido-p3.mp3');
+  sonido.volume = 0.8;
+  
+  // Damos play al archivo. Los navegadores web permiten audio automático si el usuario está pulsando teclas
+  sonido.play().catch(error => {
+    console.log("No se pudo cargar el audio. ¿Seguro que pusiste el archivo mp3?", error);
+    alert("¡Invocación P3 activada! (Recuerda añadir el archivo de sonido en assets/sonido-p3.mp3)");
+  });
+
+  // 2. Efecto visual intenso tipo disparo/Evoker (Invertimos los colores de la pantalla un segundo)
+  document.body.style.transition = "filter 0.2s ease-out";
+  document.body.style.filter = "invert(100%) hue-rotate(180deg) contrast(150%)";
+  
+  // Regresarlo a la normalidad después de un corto tiempo
+  setTimeout(() => {
+    document.body.style.filter = "none";
+    setTimeout(() => {
+      // Limpiamos el 'transition' para no afectar otras animaciones futuras de la base
+      document.body.style.transition = "";
+    }, 200);
+  }, 300); // 300 milisegundos de destello mental
+}
