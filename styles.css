@@ -282,14 +282,14 @@ footer {
   display: block;
   margin: 30px auto; /* Espacio arriba y abajo, centrado horizontalmente */
   padding: 10px 20px;
-  background-color: #440078;
+  background-color: #d7b437;
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4);
+  box-shadow: 0 4px 10px rgba(241, 240, 240, 0.4);
   transition: top 0.2s, left 0.2s, transform 0.2s; /* Animación suave al moverse */
   z-index: 9999;
 }

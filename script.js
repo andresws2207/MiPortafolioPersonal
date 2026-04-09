@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomY = Math.random() * (windowHeight - btnTroll.offsetHeight);
         
         btnTroll.style.position = 'fixed';
+        btnTroll.style.margin = '0'; // Quita el margen para evitar que estire la página
         btnTroll.style.left = randomX + 'px';
         btnTroll.style.top = randomY + 'px';
         btnTroll.style.transform = 'none'; // Quitar el transform original para no interferir
