@@ -28,3 +28,72 @@ document.addEventListener('DOMContentLoaded', () => {
     body.appendChild(bubble);
   }
 });
+
+// ============================================================
+// ANIMACIÓN DE APARICIÓN AL HACER SCROLL (FADE-IN)
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Si el elemento es visible en la pantalla
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        // Dejamos de observarlo para que la animación solo ocurra una vez
+        observer.unobserve(entry.target); 
+      }
+    });
+  });
+
+  // Seleccionamos todas las secciones para animarlas
+  const elementosOcultos = document.querySelectorAll('section');
+
+  elementosOcultos.forEach(elemento => {
+    // Ocultamos los elementos por defecto por código
+    elemento.style.opacity = "0";
+    elemento.style.transform = "translateY(30px)";
+    elemento.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    
+    // Le decimos al observador que vigile este elemento
+    observer.observe(elemento);
+  });
+
+  // LÓGICA DEL BOTÓN TROLL
+  const btnTroll = document.getElementById('btn-troll');
+  let clickCount = 0;
+
+  if (btnTroll) {
+    btnTroll.addEventListener('mouseover', function() {
+      // Movemos el botón aleatoriamente cuando el mouse se acerca
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      
+      const randomX = Math.random() * (windowWidth - btnTroll.offsetWidth);
+      const randomY = Math.random() * (windowHeight - btnTroll.offsetHeight);
+      
+      btnTroll.style.position = 'fixed'; // fijo respecto a la ventana
+      btnTroll.style.left = randomX + 'px';
+      btnTroll.style.top = randomY + 'px';
+      btnTroll.style.transform = 'none'; // Quitar el transform original para no interferir
+    });
+
+    btnTroll.addEventListener('click', function() {
+      clickCount++;
+      if (clickCount >= 3) {
+        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      } else {
+        // En caso de que logre darle clic, se vuelve a mover
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        
+        const randomX = Math.random() * (windowWidth - btnTroll.offsetWidth);
+        const randomY = Math.random() * (windowHeight - btnTroll.offsetHeight);
+        
+        btnTroll.style.position = 'fixed';
+        btnTroll.style.left = randomX + 'px';
+        btnTroll.style.top = randomY + 'px';
+        btnTroll.style.transform = 'none';
+      }
+    });
+  }
+});
