@@ -68,17 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (clickCount >= 3) {
         window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       } else {
-        // Al darle clic, se mueve de manera aleatoria por la pantalla
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
+        // Al darle clic, se mueve de manera aleatoria por la pantalla sin crear scroll
+        const windowWidth = document.documentElement.clientWidth;
+        const windowHeight = document.documentElement.clientHeight;
         
-        const randomX = Math.random() * (windowWidth - btnTroll.offsetWidth);
-        const randomY = Math.random() * (windowHeight - btnTroll.offsetHeight);
+        const randomX = Math.max(0, Math.random() * (windowWidth - btnTroll.offsetWidth));
+        const randomY = Math.max(0, Math.random() * (windowHeight - btnTroll.offsetHeight));
         
         btnTroll.style.position = 'fixed';
-        btnTroll.style.margin = '0'; // Quita el margen para evitar que estire la página
+        btnTroll.style.margin = '0';
         btnTroll.style.left = randomX + 'px';
         btnTroll.style.top = randomY + 'px';
+        btnTroll.style.bottom = 'auto';
+        btnTroll.style.right = 'auto';
         btnTroll.style.transform = 'none'; // Quitar el transform original para no interferir
       }
     });
