@@ -1,64 +1,48 @@
-﻿// ============================================================
-// ANIMACIÓN DE BURBUJAS (FONDO)
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
-  const numberOfBubbles = 12; // Cantidad de burbujas flotantes
+  const numberOfBubbles = 12;
 
   for (let i = 0; i < numberOfBubbles; i++) {
     const bubble = document.createElement('div');
     bubble.classList.add('bubble');
 
-    // Tamaño aleatorio entre 20px y 80px
     const size = Math.random() * 60 + 20 + 'px';
     bubble.style.width = size;
     bubble.style.height = size;
 
-    // Posición horizontal aleatoria (0% a 100% de la pantalla)
     bubble.style.left = Math.random() * 100 + 'vw';
 
-    // Duración y retraso aleatorios para que varíen las velocidades
-    const duration = Math.random() * 10 + 10; // Entre 10s y 20s en subir
-    const delay = Math.random() * 5; // Retraso al iniciar
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * 5;
 
     bubble.style.animationDuration = duration + 's';
     bubble.style.animationDelay = delay + 's';
 
-    // Añadir la burbuja al fondo de la página
     body.appendChild(bubble);
   }
 });
 
-// ============================================================
-// ANIMACIÓN DE APARICIÓN AL HACER SCROLL (FADE-IN)
-// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // Si el elemento es visible en la pantalla
       if (entry.isIntersecting) {
         entry.target.style.opacity = "1";
         entry.target.style.transform = "translateY(0)";
-        // Dejamos de observarlo para que la animación solo ocurra una vez
         observer.unobserve(entry.target); 
       }
     });
   });
 
-  // Seleccionamos todas las secciones para animarlas
   const elementosOcultos = document.querySelectorAll('section');
 
   elementosOcultos.forEach(elemento => {
-    // Ocultamos los elementos por defecto por código
     elemento.style.opacity = "0";
     elemento.style.transform = "translateY(30px)";
     elemento.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
     
-    // Le decimos al observador que vigile este elemento
     observer.observe(elemento);
   });
 
-  // LÓGICA DEL BOTÓN TROLL
   const btnTroll = document.getElementById('btn-troll');
   let clickCount = 0;
 
@@ -68,11 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (clickCount >= 3) {
         window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       } else {
-        // Al darle clic, se mueve de manera aleatoria por la pantalla sin crear scroll
         const windowWidth = document.documentElement.clientWidth;
         const windowHeight = document.documentElement.clientHeight;
         
-        // Mover el botón al <body> para que su posición fixed funcione realmente frente al 'transform' del section
         if (btnTroll.parentElement !== document.body) {
           document.body.appendChild(btnTroll);
         }
@@ -86,33 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
         btnTroll.style.top = randomY + 'px';
         btnTroll.style.bottom = 'auto';
         btnTroll.style.right = 'auto';
-        btnTroll.style.transform = 'none'; // Quitar el transform original para no interferir
+        btnTroll.style.transform = 'none';
       }
     });
   }
 });
 
-// --- EASTER EGG: SECUENCIA 6 Y 7 (PERSONA 3) ---
 const secretCode = ['6', '7'];
 let codePosition = 0;
 
 window.addEventListener('keydown', (e) => {
   let key = e.key;
   
-  // Comparamos la tecla apretada con la posición actual de la secuencia secreta
   if (key === secretCode[codePosition]) {
-    codePosition++; // Avanzamos al siguiente paso
+    codePosition++;
     
-    // Si llegamos al final del arreglo, ¡completaron el código!
     if (codePosition === secretCode.length) {
       activarPersona3();
-      codePosition = 0; // Reiniciamos por si lo quieren volver a hacer
+      codePosition = 0;
     }
   } else {
-    // Si se equivocan de tecla, se rompe la cadena y vuelve a empezar
     codePosition = 0;
     
-    // Pequeño truco por si apretó el '6' al equivocarse
     if (key === secretCode[0]) {
       codePosition = 1;
     }
@@ -120,28 +97,23 @@ window.addEventListener('keydown', (e) => {
 });
 
 function activarPersona3() {
-  console.log("🔥 ¡Has activado el secreto de Persona 3! 🔥");
+  console.log(" Has activado el secreto de Persona 3 ");
   
-  // 1. Reproducir sonido (¡Asegúrate de poner este archivo en tu carpeta assets!)
   const sonido = new Audio('assets/sonido-p3.mp3');
   sonido.volume = 0.8;
   
-  // Damos play al archivo. Los navegadores web permiten audio automático si el usuario está pulsando teclas
   sonido.play().catch(error => {
-    console.log("No se pudo cargar el audio. ¿Seguro que pusiste el archivo mp3?", error);
-    alert("¡Invocación P3 activada! (Recuerda añadir el archivo de sonido en assets/sonido-p3.mp3)");
+    console.log("No se pudo cargar el audio", error);
+    alert("¡Invocación P3 activada!");
   });
 
-  // 2. Efecto visual intenso tipo disparo/Evoker (Invertimos los colores de la pantalla un segundo)
   document.body.style.transition = "filter 0.2s ease-out";
   document.body.style.filter = "invert(100%) hue-rotate(180deg) contrast(150%)";
   
-  // Regresarlo a la normalidad después de un corto tiempo
   setTimeout(() => {
     document.body.style.filter = "none";
     setTimeout(() => {
-      // Limpiamos el 'transition' para no afectar otras animaciones futuras de la base
       document.body.style.transition = "";
     }, 200);
-  }, 300); // 300 milisegundos de destello mental
+  }, 300);
 }
