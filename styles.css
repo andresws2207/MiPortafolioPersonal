@@ -179,3 +179,32 @@ footer {
   font-size: 0.85rem;
 }
 
+
+/* BÚRBUJAS (ANIMACIÓN DE FONDO) */
+.bubble {
+  position: fixed;
+  bottom: -100px;
+  background-color: rgba(26, 94, 66, 0.08); /* Tono verde elegante y sutil */
+  border: 1px solid rgba(26, 94, 66, 0.15);
+  border-radius: 50%;
+  z-index: -1; /* Atrás de todo el contenido */
+  pointer-events: none;
+  animation: floatUp ease-in infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
