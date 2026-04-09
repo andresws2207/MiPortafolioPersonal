@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
 const secretCode = ['6', '7'];
 let codePosition = 0;
 
-document.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', (e) => {
   let key = e.key;
-
+  
   // Comparamos la tecla apretada con la posición actual de la secuencia secreta
   if (key === secretCode[codePosition]) {
     codePosition++; // Avanzamos al siguiente paso
