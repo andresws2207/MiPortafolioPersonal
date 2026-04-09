@@ -63,26 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let clickCount = 0;
 
   if (btnTroll) {
-    btnTroll.addEventListener('mouseover', function() {
-      // Movemos el botón aleatoriamente cuando el mouse se acerca
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      
-      const randomX = Math.random() * (windowWidth - btnTroll.offsetWidth);
-      const randomY = Math.random() * (windowHeight - btnTroll.offsetHeight);
-      
-      btnTroll.style.position = 'fixed'; // fijo respecto a la ventana
-      btnTroll.style.left = randomX + 'px';
-      btnTroll.style.top = randomY + 'px';
-      btnTroll.style.transform = 'none'; // Quitar el transform original para no interferir
-    });
-
     btnTroll.addEventListener('click', function() {
       clickCount++;
       if (clickCount >= 3) {
         window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       } else {
-        // En caso de que logre darle clic, se vuelve a mover
+        // Al darle clic, se mueve de manera aleatoria por la pantalla
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
         
@@ -92,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnTroll.style.position = 'fixed';
         btnTroll.style.left = randomX + 'px';
         btnTroll.style.top = randomY + 'px';
-        btnTroll.style.transform = 'none';
+        btnTroll.style.transform = 'none'; // Quitar el transform original para no interferir
       }
     });
   }
