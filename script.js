@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const windowWidth = document.documentElement.clientWidth;
         const windowHeight = document.documentElement.clientHeight;
         
+        // Mover el botón al <body> para que su posición fixed funcione realmente frente al 'transform' del section
+        if (btnTroll.parentElement !== document.body) {
+          document.body.appendChild(btnTroll);
+        }
+        
         const randomX = Math.max(0, Math.random() * (windowWidth - btnTroll.offsetWidth));
         const randomY = Math.max(0, Math.random() * (windowHeight - btnTroll.offsetHeight));
         
