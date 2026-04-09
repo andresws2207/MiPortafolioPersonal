@@ -77,9 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
 const secretCode = ['6', '7'];
 let codePosition = 0;
 
+const jjkCode = ['j', 'j', 'k'];
+let jjkPosition = 0;
+
 window.addEventListener('keydown', (e) => {
   let key = e.key;
   
+  // Easter Egg 1: Persona 3 (Secuencia 6 y 7)
   if (key === secretCode[codePosition]) {
     codePosition++;
     
@@ -89,12 +93,61 @@ window.addEventListener('keydown', (e) => {
     }
   } else {
     codePosition = 0;
-    
     if (key === secretCode[0]) {
       codePosition = 1;
     }
   }
+
+  // Easter Egg 2: Jujutsu Kaisen (Secuencia j, j, k)
+  let kLower = key.toLowerCase(); // Convertimos a minúscula por si escribe JJK
+  if (kLower === jjkCode[jjkPosition]) {
+    jjkPosition++;
+    
+    if (jjkPosition === jjkCode.length) {
+      activarJJK();
+      jjkPosition = 0;
+    }
+  } else {
+    jjkPosition = 0;
+    if (kLower === jjkCode[0]) {
+      jjkPosition = 1;
+    }
+  }
 });
+
+function activarJJK() {
+  console.log("¡Expansión de Dominio!");
+  
+  // Evitar añadir múltiples videos
+  if (document.getElementById('video-jjk')) return;
+  
+  const video = document.createElement('video');
+  video.id = 'video-jjk';
+  video.src = 'assets/jjk.mp4';
+  video.autoplay = true;
+  video.loop = true;
+  
+  // Estilo del video para que tome TODA la pantalla en el fondo
+  video.style.position = 'fixed';
+  video.style.top = '0';
+  video.style.left = '0';
+  video.style.width = '100vw';
+  video.style.height = '100vh';
+  video.style.objectFit = 'cover';
+  video.style.zIndex = '-2';
+  
+  document.body.appendChild(video);
+  
+  // Borramos el fondo que tiene Persona 3 para que deje ver la capa de video debajo
+  document.body.style.background = 'transparent';
+  
+  // Usamos un pequeño delay técnico para darle Play manualmente superando el bloqueador de navegadores
+  setTimeout(() => {
+    video.play().catch(e => {
+        alert("Expansión de dominio invocada (Asegúrate de agregar el video de fondo como: assets/jjk.mp4)");
+    });
+  }, 100);
+}
 
 function activarPersona3() {
   console.log(" Has activado el secreto de Persona 3 ");
