@@ -92,33 +92,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// --- EASTER EGG: CÓDIGO KONAMI (PERSONA 3) ---
-const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-let konamiPosition = 0;
+// --- EASTER EGG: SECUENCIA 6 Y 7 (PERSONA 3) ---
+const secretCode = ['6', '7'];
+let codePosition = 0;
 
 document.addEventListener('keydown', (e) => {
-  // Convertimos a minúscula por si el usuario tiene Bloq Mayús activado
   let key = e.key;
-  if (key === 'B' || key === 'A') {
-    key = key.toLowerCase();
-  }
 
   // Comparamos la tecla apretada con la posición actual de la secuencia secreta
-  if (key === konamiCode[konamiPosition]) {
-    konamiPosition++; // Avanzamos al siguiente paso
+  if (key === secretCode[codePosition]) {
+    codePosition++; // Avanzamos al siguiente paso
     
     // Si llegamos al final del arreglo, ¡completaron el código!
-    if (konamiPosition === konamiCode.length) {
+    if (codePosition === secretCode.length) {
       activarPersona3();
-      konamiPosition = 0; // Reiniciamos por si lo quieren volver a hacer
+      codePosition = 0; // Reiniciamos por si lo quieren volver a hacer
     }
   } else {
     // Si se equivocan de tecla, se rompe la cadena y vuelve a empezar
-    konamiPosition = 0;
+    codePosition = 0;
     
-    // Pequeño truco: Si se equivocó pero apretó la Flecha Arriba (inicio del código), cuenta como primer paso
-    if (key === konamiCode[0]) {
-      konamiPosition = 1;
+    // Pequeño truco por si apretó el '6' al equivocarse
+    if (key === secretCode[0]) {
+      codePosition = 1;
     }
   }
 });
