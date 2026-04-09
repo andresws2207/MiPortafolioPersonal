@@ -10,7 +10,16 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #ffffff; /* Fondo completamente blanco */
+  
+  /* ESTE ES EL FONDO (Persona 3) */
+  /* Si no pones la imagen en assets/fondo-p3.jpg, mostrará este degradado azul/blanco simulando la imagen */
+  background: linear-gradient(120deg, #ffffff 35%, #005ce6 35%, #002266 100%);
+  background-image: url('assets/fondo-p3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
   color: #333333;
   line-height: 1.6;
 }
@@ -32,12 +41,16 @@ h1, h2, h3 {
 
 /* CONTENEDOR PRINCIPAL */
 .container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 1.5rem 4rem;
+  padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem; /* Espacio extra abierto entre secciones */
+  gap: 4rem; 
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* HEADER */
@@ -45,10 +58,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 5%;
+  padding: 1.5rem 5%;
   max-width: 900px;
-  margin: 0 auto 3rem;
-  border-bottom: 1px solid #eaeaea;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .logo {
@@ -184,8 +200,8 @@ footer {
 .bubble {
   position: fixed;
   bottom: -100px;
-  background-color: rgba(26, 94, 66, 0.08); /* Tono verde elegante y sutil */
-  border: 1px solid rgba(26, 94, 66, 0.15);
+  background-color: rgba(0, 92, 230, 0.1); /* Tono azul P3 */
+  border: 1px solid rgba(0, 92, 230, 0.2);
   border-radius: 50%;
   z-index: -1; /* Atrás de todo el contenido */
   pointer-events: none;
@@ -208,3 +224,41 @@ footer {
     opacity: 0;
   }
 }
+
+/* CAJA DE PROYECTO */
+.proyecto-caja {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.proyecto-caja h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #111;
+}
+
+.proyecto-caja p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid #1c83cd;
+  color: #1c83cd;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: #1c83cd;
+  color: #ffffff;
+}
+
