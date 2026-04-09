@@ -83,7 +83,7 @@ let jjkPosition = 0;
 window.addEventListener('keydown', (e) => {
   let key = e.key;
   
-  // Easter Egg 1: Persona 3 (Secuencia 6 y 7)
+
   if (key === secretCode[codePosition]) {
     codePosition++;
     
@@ -98,8 +98,8 @@ window.addEventListener('keydown', (e) => {
     }
   }
 
-  // Easter Egg 2: Jujutsu Kaisen (Secuencia j, j, k)
-  let kLower = key.toLowerCase(); // Convertimos a minúscula por si escribe JJK
+
+  let kLower = key.toLowerCase(); 
   if (kLower === jjkCode[jjkPosition]) {
     jjkPosition++;
     
@@ -124,7 +124,7 @@ function activarJJK() {
   video.id = 'video-jjk2';
   video.src = 'assets/jjk2.mp4';
   video.autoplay = true;
-  video.preload = 'auto'; // Precargar bloque de video
+  video.preload = 'auto'; 
   video.playsInline = true;
   
   video.style.position = 'fixed';
@@ -135,13 +135,13 @@ function activarJJK() {
   video.style.objectFit = 'cover';
   video.style.zIndex = '-2';
   
-  // Acelerador de hardware forzado
+
   video.style.transform = 'translateZ(0)';
   video.style.willChange = 'transform, opacity';
   
   document.body.appendChild(video);
   
-  // Manejo del contenedor principal y sus filtros difuminados
+
   const cajaPrincipal = document.querySelector('.container');
   
   document.body.style.background = 'black';
