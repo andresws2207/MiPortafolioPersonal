@@ -117,3 +117,36 @@ function activarPersona3() {
     }, 200);
   }, 300);
 }
+
+const imgPersona3 = document.querySelector('img[alt="Persona 3"]');
+
+if (imgPersona3) {
+  imgPersona3.style.webkitUserSelect = "none";
+  imgPersona3.style.userSelect = "none";
+  imgPersona3.style.webkitTouchCallout = "none";
+
+  let touchTimer;
+
+  imgPersona3.addEventListener('contextmenu', e => {
+    e.preventDefault();
+  });
+
+  function startSecretTimer(e) {
+    touchTimer = setTimeout(() => {
+      activarPersona3();
+    }, 7000);
+  }
+
+  function cancelSecretTimer() {
+    clearTimeout(touchTimer);
+  }
+
+  imgPersona3.addEventListener('touchstart', startSecretTimer, { passive: true });
+  imgPersona3.addEventListener('touchend', cancelSecretTimer);
+  imgPersona3.addEventListener('touchmove', cancelSecretTimer, { passive: true });
+  imgPersona3.addEventListener('touchcancel', cancelSecretTimer);
+
+  imgPersona3.addEventListener('mousedown', startSecretTimer);
+  imgPersona3.addEventListener('mouseup', cancelSecretTimer);
+  imgPersona3.addEventListener('mouseleave', cancelSecretTimer);
+}
